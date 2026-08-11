@@ -8,7 +8,7 @@ A collection of experiments exploring LLM guardrails, adversarial prompting, and
 
 An isolated lab experiment exploring how conversational framing and iterative prompting can lead an LLM to generate a malicious capability, followed by validation, execution, threat hunting, and behavioral analysis.
 
-- **Writeup:** [Medium](https://github.com/mugheeskhan5/jailbreaking-llms/blob/main/deepseek-keylogger/keylogger_writeup.md)
+- **Writeup:** [🔑](https://github.com/mugheeskhan5/jailbreaking-llms/blob/main/deepseek-keylogger/keylogger_writeup.md)
 - **Focus:** LLM Red Teaming · Threat Hunting · Malware Analysis · AI Safety
 
 ### 02 — Drive-by Download
