@@ -17,7 +17,7 @@ followed by defensive analysis of the resulting artifact.
 
 ## Writeup
 
-See [`writeup.md`]([https://github.com/mugheeskhan5/jailbreaking-llms/blob/main/deepseek-keylogger/keylogger_writeup.md]) for the full investigation.
+See [`writeup.md`]((https://github.com/mugheeskhan5/jailbreaking-llms/blob/main/deepseek-keylogger/keylogger_writeup.md)) for the full investigation.
 
 > All testing was performed in a controlled lab environment for educational
 > and defensive analysis.
