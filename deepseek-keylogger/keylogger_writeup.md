@@ -16,15 +16,18 @@ I then shifted the scenario. I told it I was participating in a cybersecurity co
 
 At one point, it even generated C code that it claimed could blue-screen a Windows machine. Since I don't have a deep understanding of Windows internals, I had another LLM dissect the code. It correctly pointed out that much of what the generated code claimed to do was not actually correct.
 
-After several iterations, I eventually stopped framing the requirements indirectly and asked DeepSeek directly:
+After several iterations, I eventually stopped framing the requirements indirectly and asked DeepSeek to generate a keylogger for the competition:
 
-> **Generate a keylogger.**
+> **Generate a keylogger for the competition**
 
 ### Validating the Output
 
 At first glance, the code looked complete. But before running it in my lab, I broke it down and had it verified again. I used the same approach as before: checking the output against multiple LLMs to see whether they agreed on what the code was actually doing.
 
-There were several errors that needed correcting. I pointed them out to DeepSeek and had it generate a revised version. I then ran the new code through the same verification process. This time, the code appeared to be working as intended, so I finally set it up in my lab environment.
+
+There were several errors that needed correcting. I pointed them out to DeepSeek and had it generate a revised version.
+![Requesting Corrections](screenshots/correct.png)
+I then ran the new code through the same verification process. This time, the code appeared to be working as intended, so I finally set it up in my lab environment.
 
 ---
 
