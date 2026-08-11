@@ -44,7 +44,7 @@ Interestingly, the model also generated the batch files I used to operate the sa
 
 The build script compiled both the monitor and decryption utility successfully.
 
-![Build script successfully compiling the monitor and decryption utility](images/build.png)
+![Build script successfully compiling the monitor and decryption utility](screenshots/build.png)
 
 ### Executing It
 
@@ -52,11 +52,11 @@ I ran the batch file, launched the executable, and let it capture some input. I 
 
 The deployment script reported the running process and the local log-file location:
 
-![Keylogger deployment and running process](images/run.png)
+![Keylogger deployment and running process](screenshots/run.png)
 
 I also used the verification script to confirm that the process was running and that the log file existed:
 
-![Verification script confirming the monitor is running and the log file exists](images/verify.png)
+![Verification script confirming the monitor is running and the log file exists](screenshots/verify.png)
 
 The last script turned out to be a rather important detail, and things could have gone very differently than I expected.
 
@@ -64,11 +64,11 @@ The last script turned out to be a rather important detail, and things could hav
 
 The first stop attempt successfully terminated the monitor while preserving the log file:
 
-![Monitor stopped successfully and log file preserved](images/stop_success.png)
+![Monitor stopped successfully and log file preserved](screenshots/stop_success.png)
 
 A subsequent check confirmed that the process was no longer running:
 
-![Verification showing that the monitor is no longer running](images/stop_not_running.png)
+![Verification showing that the monitor is no longer running](screenshots/stop_not_running.png)
 
 ### Initial Observations
 
@@ -76,7 +76,7 @@ The output contained more than just the keystrokes. It included timestamps, the 
 
 The captured session showed the application context alongside individual keystrokes and completed input:
 
-![Decrypted captured keystrokes with timestamps and application context](images/decrypt.png)
+![Decrypted captured keystrokes with timestamps and application context](screenshots/decrypt.png)
 
 At this point, there was little doubt: **the keylogger was actually working.**
 
@@ -98,7 +98,7 @@ The process was named `svchost.exe`, but its executable was sitting in an unusua
 
 The path-based query returned the suspicious process directly:
 
-![PowerShell query identifying svchost.exe running from a non-standard path](images/process_path.png)
+![PowerShell query identifying svchost.exe running from a non-standard path](screenshots/process_path.png)
 
 I terminated the process and confirmed that the keylogger had stopped.
 
@@ -108,7 +108,7 @@ While I was in the middle of hunting the process down manually, Windows Defender
 
 It quarantined the executable and flagged it as `Behavior:Win32/DefenseEvasion.A!ml`. Microsoft categorizes these `Behavior:Win32/DefenseEvasion.*!ml` detections as behavior-based detections, with Defender using behavioral monitoring and machine learning to classify suspicious activity.
 
-![Windows Defender quarantining the disguised executable](images/defender.png)
+![Windows Defender quarantining the disguised executable](screenshots/defender.png)
 
 What's notable is what it flagged. The `DefenseEvasion` classification fits the behavior I was investigating: a process impersonating `svchost.exe` while running from a non-standard location. Two separate detection approaches had now converged on the same sample, but through different means. My approach relied on knowing what a legitimate `svchost.exe` executable path should look like; Defender independently detected the sample through its behavioral detection mechanisms.
 
